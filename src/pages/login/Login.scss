@@ -1,0 +1,31 @@
+.login{
+ 
+  .loginImg{
+    img{
+      height: 560px;
+    }
+  }
+.formCheckbox{
+  display: flex;
+  align-items: center;
+  input{
+    width: 17px;
+    height: 17px;
+    appearance: none;
+    border: .5px solid rgb(204, 204, 204);
+    border-radius: 2px;
+    position: relative;
+    &:checked{
+      background: #fc8019;
+      border: none;
+    }
+  }
+& > i{
+  color: white;
+  transform: translateX(-15px) scale(.8);
+ 
+}
+
+}
+
+}

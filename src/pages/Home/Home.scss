@@ -1,0 +1,187 @@
+.Home {
+  width: 82%;
+  min-height: 88vh;
+  z-index: 8;
+  border-radius: 0px 40px 0px 0px;
+  flex-wrap: wrap;
+  transition: 0.3s;
+  
+  .sliderSection {
+    width: 58%;
+    .banner {
+      .banner-container {
+        .indicator {
+          top: 50%;
+          transform: translateY(-50%);
+          .bannerindicator {
+            width: 11px;
+            height: 11px;
+          }
+        }
+      }
+    }
+    .category {
+      > h3 {
+        margin-left: 3.33%;
+      }
+      .category-container {
+        .category-slider {
+          display: flex;
+          .category-one {
+            min-width: 30%;
+            height: 150px;
+            margin-left: 3.33%;
+            border-radius: 10px;
+            text-align: center;
+            svg {
+              margin-bottom: 10px;
+            }
+          }
+        }
+      }
+    }
+    .Dishes {
+      .dishes-header {
+        h3 {
+          margin-left: 3%;
+        }
+      }
+      .dishes-container {
+        .dishes-slider {
+          .dishes-card {
+            min-width: 47%;
+            margin-left: 3%;
+            .card-header {
+              .offer {
+                border-radius: 0px 0px 10px 0px;
+              }
+            }
+          }
+        }
+      }
+    }
+    .order {
+      > h3 {
+        margin-left: 3%;
+      }
+      .order-container {
+        .order-slider {
+          .order-card {
+            min-width: 47%;
+            margin-left: 3%;
+          }
+        }
+      }
+    }
+  }
+  .paymentSection {
+    width: 39%;
+    height: fit-content;
+    .address {
+      border-bottom: 1px solid #fc8019;
+    }
+    .cart-container {
+      border-bottom: 1px solid #fc8019;
+
+      transition: 0.1s;
+      .cart {
+        .foodimg {
+          width: 25%;
+          .foodimg-inner {
+            width: 70px;
+            height: 70px;
+          }
+        }
+        .price {
+          width: 75%;
+          .price-quantity {
+            .quantity {
+              span {
+                padding: 4px 10px;
+              }
+              .number {
+                border-right: 1px solid #fc8019;
+                border-left: 1px solid #fc8019;
+              }
+            }
+          }
+        }
+        &:hover {
+          background: #ffdcbe;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .Home {
+    .sliderSection {
+      width: 100%;
+    }
+    .paymentSection {
+      width: 100%;
+      margin-top: 20px;
+    }
+  }
+}
+@media (max-width: 1120px) {
+  .Home {
+    width: 75%;
+  }
+}
+@media (max-width: 992px) {
+  .Home {
+    width: 100%;
+  }
+}
+@media (max-width: 567px) {
+  .Home {
+    .sliderSection {
+      .category {
+        .category-container {
+          .category-slider {
+            .category-one {
+              min-width: 48%;
+              margin-left: 2%;
+            }
+          }
+        }
+      }
+      .Dishes {
+        .dishes-container {
+          .dishes-slider {
+            .dishes-card {
+              min-width: 97%;
+              margin-left: 3%;
+            }
+          }
+        }
+      }
+      .order {
+        .order-container {
+          .order-slider {
+            .order-card {
+              min-width: 97%;
+              margin-left: 3%;
+            }
+          }
+        }
+      }
+    }
+    .paymentSection {
+    
+      .cart-container {
+      
+        .cart {
+         
+          .price {
+            width: 70%;
+           
+          }
+        
+        }
+      }
+    }
+  }
+}

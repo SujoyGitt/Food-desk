@@ -1,0 +1,182 @@
+.header {
+  z-index: 10;
+  .nav-left {
+    width: 18%;
+    transition: 0.3s;
+    .logo {
+      .brand-title {
+        transform: scale(1.1);
+        transition: 0.3s;
+      }
+    }
+    .nav-control {
+      .nav-control-line {
+        height: 3px;
+        transition: 0.2s;
+      }
+    }
+  }
+  .seachBar {
+    width: 81%;
+    transition: 0.2s;
+    .filter {
+      border: 0.5px solid rgba(255, 255, 255, 0.185);
+      .location-filter {
+        > ul {
+          box-shadow: 0px 0px 10px 10px rgba(87, 87, 87, 0.055);
+        }
+      }
+      .food-filter {
+        .food-filter-header {
+          input {
+            background: transparent;
+            &::placeholder {
+              color: white;
+            }
+          }
+        }
+      }
+      .food-options-show {
+        border: 1px solid rgba(128, 128, 128, 0.356);
+        border-top: none;
+        border-radius: 0px 0px 8px 8px;
+        > h3 {
+          color: rgb(85, 85, 85);
+        }
+        > ul {
+          margin: 10px 0px;
+          li {
+            display: inline-block;
+            border-radius: 30px;
+            margin-left: 7px;
+            padding: 10px 15px;
+            border: 1px solid rgb(231, 231, 231);
+            color: rgb(138, 138, 138);
+            font-size: 15px;
+            font-weight: 500;
+            transition: 0.3s;
+            &:hover {
+              background: rgb(231, 231, 231);
+            }
+          }
+          li:nth-child(1) {
+            margin-left: 0px;
+          }
+        }
+        .popular-cuisines {
+          .popular-cuisines-slider {
+            .cuisines {
+              min-width: 22.5%;
+              margin-left: 3%;
+              padding: 10px 0px;
+              border-radius: 10px;
+            }
+            .cuisines:nth-child(1) {
+              margin-left: 0px;
+            }
+          }
+        }
+      }
+    }
+    .profile {
+      .profile-header {
+        img {
+          border-radius: 50%;
+          border: 3px solid white;
+        }
+        i {
+          transition: 0.3s;
+        }
+      }
+      > ul {
+        transition: 0.3s;
+        box-shadow: 0px 5px 5px 3px rgba(128, 128, 128, 0.144);
+        z-index: 10;
+        li {
+          margin: 12px 0px;
+          a {
+            span {
+              font-size: 13px;
+              color: gray;
+              margin-left: 8px;
+            }
+          }
+        }
+      }
+      .profileshow {
+        transform: scaleY(0);
+        transform-origin: top;
+        overflow: hidden;
+      }
+    }
+  }
+}
+.headerAdd {
+  .nav-left {
+    width: 8%;
+  }
+  .seachBar {
+    width: 90%;
+  }
+}
+.header::after {
+  content: "";
+  width: 40px;
+  height: 40px;
+  background: #fc8019;
+  position: absolute;
+  right: 0;
+  top: 100%;
+}
+.header::before {
+  content: "";
+  width: 40px;
+  height: 40px;
+  background: white;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  border-radius: 0px 40px 0 0;
+  z-index: 2;
+}
+@media (max-width:1300px) {
+  .header{
+    .nav-left{
+      width: 25%;
+      justify-content: center;
+    }
+    .seachBar{
+      width: 75%;
+    }
+  }
+}
+@media (max-width: 1080px) {
+  .header {
+    .nav-left {
+      width: 35%;
+      justify-content: center;
+    }
+    .seachBar {
+      width: 65%;
+      justify-content: flex-end;
+      .filter {
+        display: none;
+      }
+    }
+  }
+}
+@media (max-width:767px) {
+  .header{
+    .nav-left{
+      width: 50%;
+      .logo {
+        .brand-title {
+         display: none;
+        }
+      }
+    }
+    .seachBar{
+      width: 50%;
+    }
+  }
+}
