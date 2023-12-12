@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/Food-desk/static/css/main.997b8ec3.css",
-    "main.js": "/Food-desk/static/js/main.5c17bb57.js",
+    "main.css": "/Food-desk/static/css/main.925c53ee.css",
+    "main.js": "/Food-desk/static/js/main.d5a05a0f.js",
     "static/media/offer.png": "/Food-desk/static/media/offer.af62c9555c3e372bd36f.png",
     "index.html": "/Food-desk/index.html",
-    "main.997b8ec3.css.map": "/Food-desk/static/css/main.997b8ec3.css.map",
-    "main.5c17bb57.js.map": "/Food-desk/static/js/main.5c17bb57.js.map"
+    "main.925c53ee.css.map": "/Food-desk/static/css/main.925c53ee.css.map",
+    "main.d5a05a0f.js.map": "/Food-desk/static/js/main.d5a05a0f.js.map"
   },
   "entrypoints": [
-    "static/css/main.997b8ec3.css",
-    "static/js/main.5c17bb57.js"
+    "static/css/main.925c53ee.css",
+    "static/js/main.d5a05a0f.js"
   ]
 }
