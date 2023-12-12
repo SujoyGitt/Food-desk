@@ -2,10 +2,20 @@ import React, { useState } from "react";
 import "./Sidebar.scss";
 import img from "./Screenshot_4.png";
 import { useNavigate } from "react-router-dom";
+import { Tilt } from "react-tilt";
 
 const Sidebar = ({ sidebartoggle, setsidebartoggle }) => {
-  const [showAccordion, setshowAccordion] = useState(false);
+  const [showAccordionDashboard, setshowAccordionDashboard] = useState(true);
+  const [showAccordionResturent, setshowAccordionResturent] = useState(true);
+  const [showAccordionDrivers, setshowAccordionDrivers] = useState(true);
   const navigate = useNavigate();
+   // tilt default
+   const defaultOptions = {
+    reverse: false, // reverse the tilt direction
+    max: 25, // max tilt rotation (degrees)
+    scale: 1, // 2 = 200%, 1.5 = 150%, etc..
+                                                                                                                      
+  };
   return (
     <>
       <div
@@ -24,19 +34,19 @@ const Sidebar = ({ sidebartoggle, setsidebartoggle }) => {
       >
         <ul>
           <li className="text-themeorange text-xs px-5 mb-5">Main Menu</li>
-          <li className=" py-0.5  cursor-pointer" onClick={()=>setshowAccordion(!showAccordion)}>
-            <div className={!showAccordion?"head  px-5 flex justify-between items-center bg-themeorange  rounded-lg":"head  px-5 flex justify-between items-center rounded-lg"}>
+          <li className=" py-0.5  cursor-pointer" onClick={()=>setshowAccordionDashboard(!showAccordionDashboard)}>
+            <div className={!showAccordionDashboard?"head  px-5 flex justify-between items-center bg-themeorange  rounded-lg":"head  px-5 flex justify-between items-center rounded-lg"}>
               <div className="">
-                <i class={showAccordion?"bi bi-grid text-lg text-themegray mb-2":"bi bi-grid text-lg text-white mb-2"}></i>
-                <span className={showAccordion?"inline-block text-themegray text-sm font-medium p-4 hover:text-themeorange":"inline-block text-white text-sm font-medium p-4"}>
+                <i class={showAccordionDashboard?"bi bi-grid text-lg text-themegray mb-2":"bi bi-grid text-lg text-white mb-2"}></i>
+                <span className={showAccordionDashboard?"inline-block text-themegray text-sm font-medium p-4 hover:text-themeorange":"inline-block text-white text-sm font-medium p-4"}>
                   Dashboard
                 </span>
               </div>
               <span>
-                <i class={showAccordion?"header-select-icon mt-1 fa-solid fa-sort-down text-themelightgray -rotate-90":"header-select-icon mt-1 fa-solid fa-sort-down text-white"}></i>
+                <i class={showAccordionDashboard?"header-select-icon mt-1 fa-solid fa-sort-down text-themelightgray -rotate-90":"header-select-icon mt-1 fa-solid fa-sort-down text-white"}></i>
               </span>
             </div>
-            <ul className={showAccordion?"w-full  h-0 overflow-hidden":"w-full mt-5 h-44"}>
+            <ul className={showAccordionDashboard?"w-full  h-0 overflow-hidden":"w-full mt-5 h-44"}>
               <li className="w-full flex items-center justify-start pl-8 pb-4" onClick={()=>navigate('/')}>
                 <div className="w-1.5 h-0.5 bg-themeorange opacity-70" ></div>
                 <span className="text-sm pl-4 text-themegray">Food Order</span>
@@ -59,29 +69,28 @@ const Sidebar = ({ sidebartoggle, setsidebartoggle }) => {
               </li>
             </ul>
           </li>
-          
-          <li className=" py-0.5  cursor-pointer">
-            <div className="head flex justify-between items-center">
+          <li className=" py-0.5  cursor-pointer" onClick={()=>setshowAccordionResturent(!showAccordionResturent)}>
+            <div className={!showAccordionResturent?"head  px-5 flex justify-between items-center bg-themeorange  rounded-lg":"head  px-5 flex justify-between items-center rounded-lg"}>
               <div className="">
-                <i class="bi bi-shop-window text-lg text-themegray mb-3"></i>
-                <span className="inline-block text-themegray text-sm font-medium p-4 hover:text-themeorange">
-                  Restaurent
+                <i class={showAccordionResturent?"bi bi-shop-window text-lg text-themegray mb-2":"bi bi-shop-window text-lg text-white mb-2"}></i>
+                <span className={showAccordionResturent?"inline-block text-themegray text-sm font-medium p-4 hover:text-themeorange":"inline-block text-white text-sm font-medium p-4"}>
+                Restaurent
                 </span>
               </div>
               <span>
-                <i class="header-select-icon mt-1 fa-solid fa-sort-down text-themelightgray -rotate-90"></i>
+                <i class={showAccordionResturent?"header-select-icon mt-1 fa-solid fa-sort-down text-themelightgray -rotate-90":"header-select-icon mt-1 fa-solid fa-sort-down text-white"}></i>
               </span>
             </div>
-            <ul className="w-full">
-              <li className="w-full flex items-center justify-start pl-8 pb-4">
-                <div className="w-1.5 h-0.5 bg-themeorange opacity-70"></div>
+            <ul className={showAccordionResturent?"w-full  h-0 overflow-hidden":"w-full mt-5 h-44"}>
+              <li className="w-full flex items-center justify-start pl-8 pb-4" onClick={()=>navigate('/')}>
+                <div className="w-1.5 h-0.5 bg-themeorange opacity-70" ></div>
                 <span className="text-sm pl-4 text-themegray">Restaurent</span>
               </li>
-              <li className="w-full flex items-center justify-start pl-8 pb-4">
+              <li className="w-full flex items-center justify-start pl-8 pb-4" onClick={()=>navigate('/food-menu')}>
                 <div className="w-1.5 h-0.5 bg-themeorange opacity-70"></div>
                 <span className="text-sm pl-4 text-themegray">Menu</span>
               </li>
-              <li className="w-full flex items-center justify-start pl-8 pb-4">
+              <li className="w-full flex items-center justify-start pl-8 pb-4" onClick={()=>navigate('/food-menu')}>
                 <div className="w-1.5 h-0.5 bg-themeorange opacity-70"></div>
                 <span className="text-sm pl-4 text-themegray">Orders</span>
               </li>
@@ -91,34 +100,35 @@ const Sidebar = ({ sidebartoggle, setsidebartoggle }) => {
               </li>
             </ul>
           </li>
-          <li className=" py-0.5  cursor-pointer">
-            <div className="head flex justify-between items-center">
+          <li className=" py-0.5  cursor-pointer" onClick={()=>setshowAccordionDrivers(!showAccordionDrivers)}>
+            <div className={!showAccordionDrivers?"head  px-5 flex justify-between items-center bg-themeorange  rounded-lg":"head  px-5 flex justify-between items-center rounded-lg"}>
               <div className="">
-                <i class="bi bi-grid text-lg text-themegray mb-2"></i>
-                <span className="inline-block text-themegray text-sm font-medium p-4 hover:text-themeorange">
-                  Dashboard
+                <i class={showAccordionDrivers?"bi bi-bicycle text-lg text-themegray mb-2":"bi bi-bicycle text-lg text-white mb-2"}></i>
+                <span className={showAccordionDrivers?"inline-block text-themegray text-sm font-medium p-4 hover:text-themeorange":"inline-block text-white text-sm font-medium p-4"}>
+                Drivers
                 </span>
               </div>
               <span>
-                <i class="header-select-icon mt-1 fa-solid fa-sort-down text-themelightgray -rotate-90"></i>
+                <i class={showAccordionDrivers?"header-select-icon mt-1 fa-solid fa-sort-down text-themelightgray -rotate-90":"header-select-icon mt-1 fa-solid fa-sort-down text-white"}></i>
               </span>
             </div>
-            <ul className="w-full">
-              <li className="w-full flex items-center justify-start pl-8 pb-4">
-                <div className="w-1.5 h-0.5 bg-themeorange opacity-70"></div>
+            <ul className={showAccordionDrivers?"w-full  h-0 overflow-hidden":"w-full mt-5 h-44"}>
+              <li className="w-full flex items-center justify-start pl-8 pb-4" onClick={()=>navigate('/')}>
+                <div className="w-1.5 h-0.5 bg-themeorange opacity-70" ></div>
                 <span className="text-sm pl-4 text-themegray">Dashboard</span>
               </li>
-              <li className="w-full flex items-center justify-start pl-8 pb-4">
+              <li className="w-full flex items-center justify-start pl-8 pb-4" onClick={()=>navigate('/food-menu')}>
                 <div className="w-1.5 h-0.5 bg-themeorange opacity-70"></div>
                 <span className="text-sm pl-4 text-themegray">Orders</span>
               </li>
-              <li className="w-full flex items-center justify-start pl-8 pb-4">
+              <li className="w-full flex items-center justify-start pl-8 pb-4" onClick={()=>navigate('/food-menu')}>
                 <div className="w-1.5 h-0.5 bg-themeorange opacity-70"></div>
-                <span className="text-sm pl-4 text-themegray">Feedback</span>
+                <span className="text-sm pl-4 text-themegray">Feedsback</span>
               </li>
             </ul>
           </li>
-          <li className="text-themeorange text-xs my-5">Other</li>
+        
+          <li className="text-themeorange text-xs my-5 px-5">Other</li>
           <li className="flex px-5 justify-between items-center py-0.5  cursor-pointer">
             <div className="">
               <i class="bi bi-info-circle text-themegray text-lg"></i>
@@ -206,7 +216,7 @@ const Sidebar = ({ sidebartoggle, setsidebartoggle }) => {
             </span>
           </li>
         </ul>
-        <img src={img} alt="" className="w-full object-cover" />
+        <Tilt options={defaultOptions}><img src={img} alt="" className="cursor-pointer transition w-full object-cover" /></Tilt>  
         <h4 className="text-xs font-bold px-4 text-themegray my-2 mt-4">
           Food Desk - Online Food Delivery Admin Dashboard
         </h4>

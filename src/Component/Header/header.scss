@@ -64,7 +64,14 @@
           }
         }
         .popular-cuisines {
+        .react-swipeable-view-container{
+          
+        }
           .popular-cuisines-slider {
+            &::-webkit-scrollbar{
+              width: 0;
+              height: 0;
+              }
             .cuisines {
               min-width: 22.5%;
               margin-left: 3%;

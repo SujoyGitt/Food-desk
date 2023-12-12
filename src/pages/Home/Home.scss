@@ -10,6 +10,7 @@
     width: 58%;
     .banner {
       .banner-container {
+        transition: .3s;
         .indicator {
           top: 50%;
           transform: translateY(-50%);
@@ -22,21 +23,27 @@
     }
     .category {
       > h3 {
-        margin-left: 3.33%;
+        margin-left: 3.339%;
       }
       .category-container {
         .category-slider {
           display: flex;
-          .category-one {
-            min-width: 30%;
-            height: 150px;
-            margin-left: 3.33%;
-            border-radius: 10px;
-            text-align: center;
-            svg {
-              margin-bottom: 10px;
+          padding-left: 2%;
+          
+          div{
+            .category-one {
+              min-width: 30%;
+              height: 150px;
+              border-radius: 10px;
+              margin: 0px 5%;
+              text-align: center;
+              svg {
+                margin-bottom: 10px;
+              }
             }
+           
           }
+      
         }
       }
     }
@@ -48,9 +55,10 @@
       }
       .dishes-container {
         .dishes-slider {
+          padding-left:2%;
           .dishes-card {
             min-width: 47%;
-            margin-left: 3%;
+           margin:0px 3%;
             .card-header {
               .offer {
                 border-radius: 0px 0px 10px 0px;
@@ -66,9 +74,12 @@
       }
       .order-container {
         .order-slider {
+          padding-left:2%;
+
           .order-card {
             min-width: 47%;
-            margin-left: 3%;
+            margin:0px 3%;
+
           }
         }
       }
@@ -141,9 +152,10 @@
       .category {
         .category-container {
           .category-slider {
+
             .category-one {
-              min-width: 48%;
-              margin-left: 2%;
+              min-width: 50%;
+              margin: 0%;
             }
           }
         }
@@ -151,6 +163,7 @@
       .Dishes {
         .dishes-container {
           .dishes-slider {
+            padding-left:0%;
             .dishes-card {
               min-width: 97%;
               margin-left: 3%;

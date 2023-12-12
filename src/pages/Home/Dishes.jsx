@@ -1,27 +1,47 @@
 import React, { useState } from "react";
 import { FoodApi } from "../../FoodApi";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import Tooltip from "@material-ui/core/Tooltip";
+import OwlCarousel from "react-owl-carousel";
+import "owl.carousel/dist/assets/owl.carousel.css";
+import "owl.carousel/dist/assets/owl.theme.default.css";
+import { useCartContext } from "../../context/CartContext";
 const Dishes = () => {
   const [wiseList, setwiseList] = useState(false);
   const [cart, setcart] = useState(false);
+  let navigate = useNavigate();
+  const { addToCart } = useCartContext();
+  const amount = 1;
+  // carousel responsive
+  const responsive = {
+    0: {
+      items: 1,
+    },
+    576: {
+      items: 2, // Display one item on screens smaller than 0px
+    },
+  };
   return (
     <div className="Dishes w-full">
       <div className="dishes-header flex items-center justify-between">
         <h3 className="text-lg font-semibold text-black opacity-80 my-4">
           Popular Dishes
         </h3>
-        <NavLink className="text-themeorange text-sm" to="/food-menu">
+        <NavLink className="text-themeorange text-xs" to="/food-menu">
           View all
           <i class="fas fa-chevron-down -rotate-90 ml-0.5 text-themeorange text-sm"></i>
         </NavLink>
       </div>
       <div className="dishes-container w-full overflow-hidden">
         <div className="dishes-slider w-full flex justify-between items-center">
-          {FoodApi.foods
-            .slice(0, 6)
-            .reverse()
-            .map((data) => {
+          <OwlCarousel
+            autoplay={true}
+            autoplayTimeout={3000}
+            loop={true}
+            smartSpeed={2000}
+            responsive={responsive}
+          >
+            {FoodApi.foods.map((data) => {
               return (
                 <div
                   className={
@@ -123,32 +143,39 @@ const Dishes = () => {
                       ${data.price}
                     </div>
                     <div
-                      className="add p-2 bg-themeorange rounded-md text-white text-2xl"
-                      onClick={() => setcart(!cart)}
+                      className="add p-2 bg-themeorange rounded-md text-white text-2xl cursor-pointer"
+                      onClick={() =>
+                        addToCart(
+                          data?.id,
+                          data?.image,
+                          data?.name,
+                          data?.price,
+                          amount, 
+                          data
+                        )
+                      }
                     >
                       <Tooltip title="Add To Cart">
-                       
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="20"
-                            height="20"
-                            fill="currentColor"
-                            class="bi bi-plus-lg"
-                            viewBox="0 0 16 16"
-                          >
-                            <path
-                              fill-rule="evenodd"
-                              d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"
-                            />
-                          </svg>
-                        
-                       
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="20"
+                          height="20"
+                          fill="currentColor"
+                          class="bi bi-plus-lg"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"
+                          />
+                        </svg>
                       </Tooltip>
                     </div>
                   </div>
                 </div>
               );
             })}
+          </OwlCarousel>
         </div>
       </div>
     </div>

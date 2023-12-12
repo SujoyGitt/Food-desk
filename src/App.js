@@ -4,10 +4,16 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Header from "./Component/Header/Header";
 import Sidebar from "./Component/sidebar/Sidebar";
-import { useState } from "react";
+import {  useEffect, useState } from "react";
 import Foodmenu from "./pages/FoodMenu/Foodmenu";
+import Fooddetails from "./pages/FoodDetails/Fooddetails";
 const Dashboard = ({ children }) => {
-  const [toggle, settoggle] = useState(false)
+  const [toggle, settoggle] = useState(false);
+  useEffect(() => {
+    if(window.innerWidth < 767){
+      settoggle(true)
+    }
+  }, [])
   return (
     <>
       <Header sidebartoggle={toggle} setsidebartoggle = {settoggle}/>
@@ -24,9 +30,11 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/login" exact element={<Login />} />
+        <Route path="/Food-desk" exact element={<Login />} />
         <Route path="/" exact element={<Dashboard ><Home /></Dashboard>} />
         <Route path="/food-menu" exact element={<Dashboard ><Foodmenu pagesize={[0,7]}/></Dashboard>} />
         <Route path="/food-menu/page-2" exact element={<Dashboard ><Foodmenu pagesize={[7,13]}/></Dashboard>} />
+        <Route path="/food-details/:id" exact element={<Dashboard ><Fooddetails/></Dashboard>} />
       </Routes>
     </BrowserRouter>
   );
